@@ -1,15 +1,10 @@
 name: 编译中文版 ZDEW
 
-# 触发条件：手动触发，或推送到 main/master 分支
+# 触发条件：手动触发，或推送到 zh / main / master 分支
 on:
   workflow_dispatch:
   push:
-    branches: [main, master]
-    paths:
-      - 'DesktopEdge/**'
-      - 'scripts/translations.json'
-      - 'scripts/translate-zh.py'
-      - '.github/workflows/build-zh.yml'
+    branches: [zh, main, master]
 
 jobs:
   build:
