@@ -25,8 +25,8 @@ namespace ZitiDesktopEdge {
 
         private ZitiIdentity _identity;
         private ZitiService[] _sortedServices;
-        private string _sortBy = "Name";
-        private string _sortWay = "Asc";
+        private string _sortBy = "名称";
+        private string _sortWay = "升序";
         private string _filter = "";
         private bool _isLoaded;
         private int _totalServices;
@@ -74,8 +74,8 @@ namespace ZitiDesktopEdge {
         /// Resets sort/filter state and loads the first page of services for the current identity.
         /// </summary>
         public void LoadServices() {
-            _sortBy = "Name";
-            _sortWay = "Asc";
+            _sortBy = "名称";
+            _sortWay = "升序";
             _filter = "";
             IsLoaded = false;
             TotalServices = _identity.Services.Count;
@@ -155,23 +155,23 @@ namespace ZitiDesktopEdge {
 
         private void SortServices() {
             switch (_sortBy) {
-                case "Name":
+                case "名称":
                     _sortedServices = _identity.Services.OrderBy(s => s.Name.ToLower()).ToArray();
                     break;
-                case "Address":
+                case "地址":
                     _sortedServices = _identity.Services.OrderBy(s => s.Addresses.ToString()).ToArray();
                     break;
-                case "Protocol":
+                case "协议":
                     _sortedServices = _identity.Services.OrderBy(s => s.Protocols.ToString()).ToArray();
                     break;
-                case "Port":
+                case "端口":
                     _sortedServices = _identity.Services.OrderBy(s => s.Ports.ToString()).ToArray();
                     break;
                 default:
                     _sortedServices = _identity.Services.ToArray();
                     break;
             }
-            if (_sortWay == "Desc") {
+            if (_sortWay == "降序") {
                 _sortedServices = _sortedServices.Reverse().ToArray();
             }
         }

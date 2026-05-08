@@ -32,20 +32,20 @@
                 CornerRadius="5"
         >
             <StackPanel x:Name="ExternalProvider" Margin="0,0,0,10">
-                <Label Content="Choose External Provider"
+                <Label Content="选择外部提供方"
                        Foreground="White"
                        FontSize="16"
                        HorizontalAlignment="Center"
                        FontWeight="Bold" />
                 <ListBox SelectionMode="Single" Margin="20,0,20,10">
-                    <d:ListBoxItem Content="Option 1" />
-                    <d:ListBoxItem Content="Option 2" />
-                    <d:ListBoxItem Content="Option 3" />
-                    <d:ListBoxItem Content="Option 4" />
+                    <d:ListBoxItem Content="选项 1" />
+                    <d:ListBoxItem Content="选项 2" />
+                    <d:ListBoxItem Content="选项 3" />
+                    <d:ListBoxItem Content="选项 4" />
                 </ListBox>
                 <Grid>
                     <local:StyledButton x:Name="AuthenticateWithProvider" 
-                                        Label="Authenticate With Provider" 
+                                        Label="通过提供方认证" 
                                         IsTabStop="True" />
                 </Grid>
             </StackPanel>

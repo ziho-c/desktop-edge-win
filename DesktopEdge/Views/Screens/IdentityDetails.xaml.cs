@@ -79,7 +79,7 @@ namespace ZitiDesktopEdge {
 
         private List<ZitiIdentity> identities {
             get {
-                return (List<ZitiIdentity>)Application.Current.Properties["Identities"];
+                return (List<ZitiIdentity>)Application.Current.Properties["身份"];
             }
         }
 
@@ -133,7 +133,7 @@ namespace ZitiDesktopEdge {
                     AuthMessageBg.Visibility = Visibility.Visible;
                     AuthMessageLabel.Visibility = Visibility.Visible;
                     NoAuthServices.Visibility = Visibility.Visible;
-                    NoAuthServices.Text = "You must authenticate to access services";
+                    NoAuthServices.Text = "必须认证后才能访问服务";
                 }
             }
         }
@@ -164,7 +164,7 @@ namespace ZitiDesktopEdge {
             } else {
                 AuthMessageLabel.Visibility = Visibility.Visible;
                 NoAuthServices.Visibility = Visibility.Visible;
-                NoAuthServices.Text = "You must enable MFA to access services";
+                NoAuthServices.Text = "必须启用 MFA 才能访问服务";
             }
         }
 
@@ -630,7 +630,7 @@ namespace ZitiDesktopEdge {
                 //hide all panels, show the provider panel
                 ExternalProviderPanel.Visibility = Visibility.Collapsed;
                 ServicesPanel.Visibility = Visibility.Visible;
-                ExternalProviderStatusAndDetails.ToolTip = "Click to configure external auth providers";
+                ExternalProviderStatusAndDetails.ToolTip = "点击配置外部认证提供方";
             } else {
                 //hide all panels, show the provider panel
                 ExternalProviderPanel.Visibility = Visibility.Visible;

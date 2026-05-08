@@ -39,7 +39,7 @@ namespace ZitiDesktopEdge {
 
         private void BrowseCertificateFile_Click(object sender, RoutedEventArgs e) {
             OpenFileDialog openFileDialog = new OpenFileDialog {
-                Title = "Select Certificate File",
+                Title = "选择证书文件",
                 Filter = "Certificate Files (*.crt;*.cert;*.pem)|*.crt;*.cert;*.pem|All Files (*.*)|*.*"
             };
 
@@ -50,7 +50,7 @@ namespace ZitiDesktopEdge {
 
         private void BrowseKeyFile_Click(object sender, RoutedEventArgs e) {
             OpenFileDialog openFileDialog = new OpenFileDialog {
-                Title = "Select Key File",
+                Title = "选择密钥文件",
                 Filter = "Key Files (*.key;*.pem)|*.key;*.pem|All Files (*.*)|*.*"
             };
 
@@ -72,7 +72,7 @@ namespace ZitiDesktopEdge {
         }
         static string GetCertificateFingerprint(string filePath) {
             if (!File.Exists(filePath))
-                throw new FileNotFoundException("The file was not found.", filePath);
+                throw new FileNotFoundException("文件未找到。", filePath);
 
             // Load the certificate
             var cert = new X509Certificate2(filePath);

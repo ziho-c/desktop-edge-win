@@ -104,13 +104,13 @@ namespace ZitiDesktopEdge {
 
         public void Disable() {
             this.IsEnabled = false;
-            ButtonBg.Style = (Style)Resources["Disabled"];
+            ButtonBg.Style = (Style)Resources["已禁用"];
             ButtonLabel.Foreground = (Brush)Resources["DisabledTextBrush"];
         }
 
         public void Enable() {
             this.IsEnabled = true;
-            ButtonBg.Style = (Style)Resources["Enabled"];
+            ButtonBg.Style = (Style)Resources["已启用"];
             ButtonLabel.Foreground = Brushes.White;
         }
     }

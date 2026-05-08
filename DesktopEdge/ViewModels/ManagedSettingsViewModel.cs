@@ -22,7 +22,7 @@ namespace ZitiDesktopEdge.ViewModels {
     /// <summary>
     /// ViewModel exposing organizational policy lock state for XAML data binding.
     /// Wraps a <see cref="ManagedSettingsState"/> model and provides both lock indicators
-    /// (for "managed by your organization" labels) and inverted editability flags
+    /// (for "由您的组织管控" labels) and inverted editability flags
     /// (for binding to IsEnabled without a converter).
     ///
     /// The policy source may be Group Policy, Intune, MDM, or any tool that writes
@@ -69,7 +69,7 @@ namespace ZitiDesktopEdge.ViewModels {
 
         /// <summary>
         /// True while the UI has an active IPC connection to the ziti-monitor service.
-        /// The Automatic Upgrades page shows a "service not running" message when false
+        /// The Automatic Upgrades page shows a "服务未运行" message when false
         /// instead of displaying stale cached values from the last connection.
         /// </summary>
         private bool _isMonitorConnected = false;
@@ -96,7 +96,7 @@ namespace ZitiDesktopEdge.ViewModels {
         public int?   MaintenanceWindowStart   { get; private set; }
         public int?   MaintenanceWindowEnd     { get; private set; }
 
-        // ---- Policy lock indicators (bind to Visibility for "managed by your organization" labels) ----
+        // ---- Policy lock indicators (bind to Visibility for "由您的组织管控" labels) ----
 
         public bool IsAutoUpdatesPolicyLocked => _state.AutomaticUpdatesDisabledLocked;
         public bool IsUpdateUrlPolicyLocked => _state.UpdateStreamUrlLocked;

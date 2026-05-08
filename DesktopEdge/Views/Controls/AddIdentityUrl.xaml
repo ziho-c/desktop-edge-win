@@ -55,8 +55,8 @@
                 Padding="10">
 		</Border>
         <StackPanel x:Name="UrlPanel" Margin="5,10,5,10">
-            <Label Content="Controller URL" Foreground="White" FontSize="16" HorizontalAlignment="Center" FontWeight="Bold"/>
-            <Label Content="Enter the controller URL" Foreground="White" Opacity="0.7" FontSize="12" HorizontalAlignment="Center"/>
+            <Label Content="Controller 地址" Foreground="White" FontSize="16" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <Label Content="输入 Controller 地址" Foreground="White" Opacity="0.7" FontSize="12" HorizontalAlignment="Center"/>
             <TextBox x:Name="ControllerURL" 
                              Text="{Binding UrlPlaceholder, Mode=OneTime}"
                              Focusable="True"
@@ -70,9 +70,9 @@
                              Width="Auto" KeyUp="HandleEnterKey"
                 />
             <!-- A place for a name, might be needed? -->
-            <!--Label Content="Identity Alias" Foreground="White" Opacity="0.7" FontSize="12" HorizontalAlignment="Center"/>
+            <!--Label Content="身份别名" Foreground="White" Opacity="0.7" FontSize="12" HorizontalAlignment="Center"/>
                 <TextBox x:Name="IdentityName" FontSize="14" TextAlignment="Center" BorderThickness="0" Margin="0,0,0,15" /-->
-            <local:StyledButton x:Name="JoinNetworkBtn" OnClick="JoinNetworkUrl" Label="Join Network" />
+            <local:StyledButton x:Name="JoinNetworkBtn" OnClick="JoinNetworkUrl" Label="加入网络" />
 
         </StackPanel>
         <Image x:Name="CloseWhite" Source="/Assets/Images/close.png" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,20,20,0" Width="15" Height="15" Cursor="Hand" MouseUp="ExecuteClose"></Image>

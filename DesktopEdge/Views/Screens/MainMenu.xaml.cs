@@ -58,7 +58,7 @@ namespace ZitiDesktopEdge {
         public event Detched OnDetach;
         public delegate void ShowBlurb(string message);
         public event ShowBlurb OnShowBlurb;
-        public string menuState = "Main";
+        public string menuState = "主页";
         public string LogLevel = "";
         private string appVersion = null;
         public double MainHeight = 500;
@@ -111,7 +111,7 @@ namespace ZitiDesktopEdge {
         private void ResetDeferCheckbox() {
             DeferToRestartCheckbox.IsChecked = false;
             DeferToRestartCheckbox.IsEnabled = true;
-            ForceUpdate.Content = "Update Now";
+            ForceUpdate.Content = "立即更新";
         }
 
         private void SetDeferCheckboxStaged() {
@@ -217,7 +217,7 @@ namespace ZitiDesktopEdge {
         public MainMenu() {
             InitializeComponent();
             this.DataContext = this;
-            Application.Current.MainWindow.Title = "Ziti Desktop Edge";
+            Application.Current.MainWindow.Title = "Ziti 桌面客户端";
             state = (ZDEWViewState)Application.Current.Properties["ZDEWViewState"];
             policyViewModel = (ManagedSettingsViewModel)Application.Current.Properties["ManagedSettingsViewModel"];
             policyViewModel.PropertyChanged += (s, e) => {
@@ -239,7 +239,7 @@ namespace ZitiDesktopEdge {
         }
 
         private void HideMenu(object sender, MouseButtonEventArgs e) {
-            menuState = "Menu";
+            menuState = "菜单";
             UpdateState();
             MainMenuArea.Visibility = Visibility.Collapsed;
         }
@@ -252,24 +252,24 @@ namespace ZitiDesktopEdge {
         }
 
         private void ShowAbout(object sender, MouseButtonEventArgs e) {
-            menuState = "About";
+            menuState = "关于";
             UpdateState();
         }
 
         private void ShowAdvanced(object sender, MouseButtonEventArgs e) {
-            menuState = "Advanced";
+            menuState = "高级";
             UpdateState();
         }
         private void ShowIdentities(object sender, MouseButtonEventArgs e) {
-            menuState = "Identities";
+            menuState = "身份";
             UpdateState();
         }
         private void ShowConfig(object sender, MouseButtonEventArgs e) {
-            menuState = "Config";
+            menuState = "配置";
             UpdateState();
         }
         private void ShowLogs(object sender, MouseButtonEventArgs e) {
-            menuState = "Logs";
+            menuState = "日志";
             UpdateState();
         }
         private void ShowUILogs(object sender, MouseButtonEventArgs e) {
@@ -277,10 +277,10 @@ namespace ZitiDesktopEdge {
             UpdateState();
         }
         private void ShowReleaseStreamMenuAction(object sender, MouseButtonEventArgs e) {
-            logger.Warn("this is ShowReleaseStreamMenuAction at warn");
-            logger.Info("this is ShowReleaseStreamMenuAction at info");
-            logger.Debug("this is ShowReleaseStreamMenuAction at debug");
-            logger.Trace("this is ShowReleaseStreamMenuAction at trace");
+            logger.Warn("此处为 ShowReleaseStreamMenuAction 警告");
+            logger.Info("此处为 ShowReleaseStreamMenuAction 信息");
+            logger.Debug("此处为 ShowReleaseStreamMenuAction 调试");
+            logger.Trace("此处为 ShowReleaseStreamMenuAction 跟踪");
             menuState = "SetReleaseStream";
             UpdateState();
         }
@@ -292,7 +292,7 @@ namespace ZitiDesktopEdge {
 
         async private void SetAutomaticUpgradesMenuAction(object sender, MouseButtonEventArgs e) {
             if (policyViewModel.AutomaticUpgradesPolicyControlled) {
-                MainWindow.ShowError("Managed by your organization", "Automatic upgrade settings are controlled by your organization and cannot be changed.");
+                MainWindow.ShowError("由您的组织管控", "自动升级设置由您的组织管控，无法修改。");
                 return;
             }
             bool disableAutomaticUpgrades = false;
@@ -309,12 +309,12 @@ namespace ZitiDesktopEdge {
                     this.AutomaticUpgradesItemOn.IsSelected  = !disableAutomaticUpgrades;
                     this.AutomaticUpgradesItemOff.IsSelected = disableAutomaticUpgrades;
                     ApplyUpgradesDetailsDimming(policyViewModel.AutomaticUpgradesPolicyControlled, disableAutomaticUpgrades);
-                    this.OnShowBlurb?.Invoke("Settings Saved.");
+                    this.OnShowBlurb?.Invoke("设置已保存。");
                 }
             } catch (MonitorServiceException) {
-                MainWindow.ShowError("Could Not Set Automatic Update", "The monitor service is offline");
+                MainWindow.ShowError("无法设置自动更新", "监控服务离线");
             } catch (Exception ex) {
-                logger.Error("unexpected error when setting automatic upgrade enabled", ex);
+                logger.Error("启用自动升级时发生意外错误", ex);
             }
         }
 
@@ -354,8 +354,8 @@ namespace ZitiDesktopEdge {
                 ? Visibility.Visible : Visibility.Collapsed;
             CheckForUpdateStatus.Visibility = visibilityFromUpdateAvail;
 
-            if (menuState == "About") {
-                MenuTitle.Content = "About";
+            if (menuState == "关于") {
+                MenuTitle.Content = "关于";
                 AboutItemsArea.Visibility = Visibility.Visible;
                 AboutItems.Visibility = Visibility.Visible;
                 BackArrow.Visibility = Visibility.Visible;
@@ -377,12 +377,12 @@ namespace ZitiDesktopEdge {
                 // Interface Version
                 VersionInfo.Content = $"App: {appVersion} Service: {version} {crypto}";
 
-            } else if (menuState == "Advanced") {
-                MenuTitle.Content = "Advanced Settings";
+            } else if (menuState == "高级") {
+                MenuTitle.Content = "高级设置";
                 AdvancedItems.Visibility = Visibility.Visible;
                 BackArrow.Visibility = Visibility.Visible;
-            } else if (menuState == "Logs") {
-                MenuTitle.Content = "Advanced Settings";
+            } else if (menuState == "日志") {
+                MenuTitle.Content = "高级设置";
                 AdvancedItems.Visibility = Visibility.Visible;
                 //string targetFile = NativeMethods.GetFinalPathName(MainWindow.ExpectedLogPathServices);
                 string targetFile = MainWindow.ExpectedLogPathServices;
@@ -390,7 +390,7 @@ namespace ZitiDesktopEdge {
                 OpenLogFile("service", targetFile);
                 BackArrow.Visibility = Visibility.Visible;
             } else if (menuState == "UILogs") {
-                MenuTitle.Content = "Advanced Settings";
+                MenuTitle.Content = "高级设置";
                 AdvancedItems.Visibility = Visibility.Visible;
                 OpenLogFile("UI", MainWindow.ExpectedLogPathUI);
                 BackArrow.Visibility = Visibility.Visible;
@@ -428,8 +428,8 @@ namespace ZitiDesktopEdge {
                 AutomaticUpgradesItemOn.Opacity          = policyControlled ? 0.3 : 1.0;
                 AutomaticUpgradesItemOff.Opacity         = policyControlled ? 0.3 : 1.0;
                 ApplyUpgradesDetailsDimming(policyControlled, this.AutomaticUpgradesItemOff.IsSelected);
-            } else if (menuState == "Config") {
-                MenuTitle.Content = "Tunnel Config";
+            } else if (menuState == "配置") {
+                MenuTitle.Content = "隧道配置";
                 ConfigItems.Visibility = Visibility.Visible;
                 BackArrow.Visibility = Visibility.Visible;
 
@@ -453,12 +453,12 @@ namespace ZitiDesktopEdge {
                 } else {
                     // uncomment when we want to remove ConfigDnsEnabled.Visibility = Visibility.Collapsed;
                 }
-            } else if (menuState == "Identities") {
-                MenuTitle.Content = "Identities";
+            } else if (menuState == "身份") {
+                MenuTitle.Content = "身份";
                 IdListScrollView.Visibility = Visibility.Visible;
                 BackArrow.Visibility = Visibility.Visible;
             } else {
-                MenuTitle.Content = "Main Menu";
+                MenuTitle.Content = "主菜单";
                 MainItems.Visibility = Visibility.Visible;
                 MainItemsButton.Visibility = Visibility.Visible;
             }
@@ -488,10 +488,10 @@ namespace ZitiDesktopEdge {
         }
 
         private void GoBack(object sender, MouseButtonEventArgs e) {
-            if (menuState == "Config" || menuState == "LogLevel" || menuState == "UILogs" || menuState == "SetReleaseStream" || menuState == "ConfigureAutomaticUpgrades") {
-                menuState = "Advanced";
+            if (menuState == "配置" || menuState == "LogLevel" || menuState == "UILogs" || menuState == "SetReleaseStream" || menuState == "ConfigureAutomaticUpgrades") {
+                menuState = "高级";
             } else {
-                menuState = "Menu";
+                menuState = "菜单";
             }
             UpdateState();
         }
@@ -538,10 +538,10 @@ namespace ZitiDesktopEdge {
                 Process.Start(pfi);
             } catch (MonitorServiceException ex) {
                 logger.Error("Feedback collection aborted: {0}", ex.Message);
-                MainWindow.ShowError("Could Not Collect Feedback", ex.Message);
+                MainWindow.ShowError("无法收集反馈", ex.Message);
             } catch (Exception ex) {
                 logger.Error(ex, "Feedback collection failed: {0}", ex.Message);
-                MainWindow.ShowError("Could Not Collect Feedback", "The monitor service is offline");
+                MainWindow.ShowError("无法收集反馈", "监控服务离线");
             } finally {
                 MainWindow.HideLoad();
             }
@@ -674,7 +674,7 @@ namespace ZitiDesktopEdge {
 
         async private Task SaveSettingsButton_Click_Async() {
             if (policyViewModel.AutomaticUpgradesPolicyControlled) {
-                MainWindow.ShowError("Managed by your organization", "These settings are controlled by your organization and cannot be changed.");
+                MainWindow.ShowError("由您的组织管控", "These settings are controlled by your organization and cannot be changed.");
                 return;
             }
             try {
@@ -709,9 +709,9 @@ namespace ZitiDesktopEdge {
                 }
                 state.MaintenanceWindowStart = startHour;
                 state.MaintenanceWindowEnd   = endHour;
-                this.OnShowBlurb?.Invoke("Settings Saved.");
+                this.OnShowBlurb?.Invoke("设置已保存。");
             } catch (MonitorServiceException) {
-                MainWindow.ShowError("Could Not Save Settings", "The monitor service is offline");
+                MainWindow.ShowError("Could Not Save Settings", "监控服务离线");
             } catch (Exception ex) {
                 logger.Error("unexpected error saving automatic upgrade settings", ex);
             }
@@ -773,7 +773,7 @@ namespace ZitiDesktopEdge {
                     UpdateTimeLeft.Content = "Update Requested at " + DateTime.Now;
                     TriggerUpdateButton.Visibility = Visibility.Collapsed;
                     logger.Info(r?.ToString());
-                    menuState = "Menu";
+                    menuState = "菜单";
                     UpdateState();
                     MainMenuArea.Visibility = Visibility.Collapsed;
                 }
@@ -786,7 +786,7 @@ namespace ZitiDesktopEdge {
 
         private void DeferToRestartCheckbox_Changed(object sender, RoutedEventArgs e) {
             bool deferred = DeferToRestartCheckbox.IsChecked == true;
-            ForceUpdate.Content = deferred ? "Update on Restart" : "Update Now";
+            ForceUpdate.Content = deferred ? "Update on Restart" : "立即更新";
         }
 
         public void SetupIdList(ZitiIdentity[] ids) {

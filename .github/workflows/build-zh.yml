@@ -1,0 +1,62 @@
+name: 编译中文版 ZDEW
+
+# 触发条件：手动触发，或推送到 main/master 分支
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, master]
+    paths:
+      - 'DesktopEdge/**'
+      - 'scripts/translations.json'
+      - 'scripts/translate-zh.py'
+      - '.github/workflows/build-zh.yml'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: 安装 Python（用于运行翻译脚本）
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: 应用最新中文翻译
+        shell: pwsh
+        run: |
+          python scripts/translate-zh.py
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v2
+
+      - name: nuget restore
+        shell: pwsh
+        run: |
+          nuget restore ZitiDesktopEdge.sln
+
+      - name: msbuild Release
+        shell: pwsh
+        run: |
+          msbuild ZitiDesktopEdge.sln /p:Configuration=Release /v:minimal
+
+      - name: 打包产物
+        shell: pwsh
+        run: |
+          $version = (Get-Date -Format 'yyyyMMdd-HHmm')
+          Compress-Archive `
+            -Path DesktopEdge\bin\Release\* `
+            -DestinationPath ZitiDesktopEdge-zh-${version}.zip
+          Get-ChildItem ZitiDesktopEdge-zh-*.zip
+
+      - name: 上传产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: ZitiDesktopEdge-zh
+          path: ZitiDesktopEdge-zh-*.zip
+          retention-days: 30

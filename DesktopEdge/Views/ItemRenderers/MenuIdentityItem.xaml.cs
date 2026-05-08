@@ -73,7 +73,7 @@ namespace ZitiDesktopEdge {
             } catch (DataStructures.ServiceException se) {
                 MessageBox.Show(se.AdditionalInfo, se.Message);
             } catch (Exception ex) {
-                MessageBox.Show("Error", ex.Message);
+                MessageBox.Show("错误", ex.Message);
             }
         }
 

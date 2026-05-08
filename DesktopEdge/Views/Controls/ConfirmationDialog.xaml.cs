@@ -22,10 +22,10 @@ using System.Threading.Tasks;
 namespace ZitiDesktopEdge {
     public partial class ConfirmationDialog : UserControl {
         public static readonly DependencyProperty TitleProperty =
-            DependencyProperty.Register(nameof(Title), typeof(string), typeof(ConfirmationDialog), new PropertyMetadata("Confirmation Title"));
+            DependencyProperty.Register(nameof(Title), typeof(string), typeof(ConfirmationDialog), new PropertyMetadata("确认标题"));
 
         public static readonly DependencyProperty DescriptionProperty =
-            DependencyProperty.Register(nameof(Description), typeof(string), typeof(ConfirmationDialog), new PropertyMetadata("This is the description."));
+            DependencyProperty.Register(nameof(Description), typeof(string), typeof(ConfirmationDialog), new PropertyMetadata("这是描述。"));
 
         public static readonly DependencyProperty OkFuncProperty =
             DependencyProperty.Register(nameof(OkFunc), typeof(ICommand), typeof(ConfirmationDialog));

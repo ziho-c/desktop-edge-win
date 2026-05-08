@@ -36,7 +36,7 @@ namespace ZitiDesktopEdge.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Name")]
+        [global::System.Configuration.DefaultSettingValueAttribute("名称")]
         public string SortOption {
             get {
                 return ((string)(this["SortOption"]));
@@ -48,7 +48,7 @@ namespace ZitiDesktopEdge.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Ascending")]
+        [global::System.Configuration.DefaultSettingValueAttribute("升序")]
         public string SortDirection {
             get {
                 return ((string)(this["SortDirection"]));

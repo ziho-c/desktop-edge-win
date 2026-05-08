@@ -354,7 +354,7 @@ namespace ZitiDesktopEdge {
             } catch (ServiceException se) {
                 MessageBox.Show(se.AdditionalInfo, se.Message);
             } catch (Exception ex) {
-                MessageBox.Show("Error", ex.Message);
+                MessageBox.Show("错误", ex.Message);
             }
         }
 
@@ -407,7 +407,7 @@ namespace ZitiDesktopEdge {
                         DataClient client = (DataClient)Application.Current.Properties["ServiceClient"];
                         await _identity.PerformExternalAuthEvent(client, defaultProvider);
                     } catch (Exception ex) {
-                        ShowError("Unexpected Error", "Please report this issue: " + ex.Message);
+                        ShowError("意外错误", "Please report this issue: " + ex.Message);
                         logger.Error("external auth failed: [{}]", ex.Message);
                     }
                 } else {

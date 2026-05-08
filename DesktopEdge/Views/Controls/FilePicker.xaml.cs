@@ -48,7 +48,7 @@ namespace ZitiDesktopEdge {
 
         // Dependency Property for Button Content
         public static readonly DependencyProperty ButtonContentProperty =
-            DependencyProperty.Register("ButtonContent", typeof(string), typeof(FilePicker), new PropertyMetadata("Browse"));
+            DependencyProperty.Register("ButtonContent", typeof(string), typeof(FilePicker), new PropertyMetadata("浏览"));
 
         public string ButtonContent {
             get => (string)GetValue(ButtonContentProperty);
@@ -57,7 +57,7 @@ namespace ZitiDesktopEdge {
 
         // Dependency Property for Label Content
         public static readonly DependencyProperty LabelContentProperty =
-            DependencyProperty.Register("LabelContent", typeof(string), typeof(FilePicker), new PropertyMetadata("Key File"));
+            DependencyProperty.Register("LabelContent", typeof(string), typeof(FilePicker), new PropertyMetadata("密钥文件"));
 
         public string LabelContent {
             get => (string)GetValue(LabelContentProperty);

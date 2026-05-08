@@ -40,7 +40,7 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="1"
-                    d:Content="This title is for the designer"
+                    d:Content="此标题供设计器使用"
                     Content="{Binding Title, RelativeSource={RelativeSource AncestorType=UserControl}}"
                     Foreground="White" FontSize="16"
                     HorizontalAlignment="Stretch"
@@ -58,7 +58,7 @@
             </Grid>
 
             <TextBlock Grid.Column="1"
-                   d:Text="This is the description it should and could be long it might contain newlines and should wrap."
+                   d:Text="这是描述，可能很长，可能含换行，应自动换行。"
                    Text="{Binding Description, RelativeSource={RelativeSource AncestorType=UserControl}}"
                    Foreground="White"
                    FontSize="14"
@@ -75,7 +75,7 @@
                 <local:StyledButton
                     x:Name="OkayBtn" 
                     OnClick="ConfirmationAction" 
-                    Label="Okay" 
+                    Label="确定" 
                     IsTabStop="True" 
                     Grid.Column="0"
                     Padding="0,0,0,0"
@@ -84,7 +84,7 @@
                 <StackPanel
                     Grid.Column="1"><local:StyledButton x:Name="CancelBtn" 
                     OnClick="CancelAction" 
-                    Label="Cancel" 
+                    Label="取消" 
                     IsTabStop="True"
                     BgColor="#FF1100"
                     HorizontalContentAlignment="Stretch"

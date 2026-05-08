@@ -44,7 +44,7 @@ namespace ZitiDesktopEdge {
 
         public TunnelInstancePickerWindow(string activeDiscriminator) {
             this.activeDiscriminator = activeDiscriminator;
-            Title = "Switch tunneler instance (dev)";
+            Title = "切换 Tunneler 实例（开发）";
             Width = 420;
             Height = 360;
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
@@ -54,7 +54,7 @@ namespace ZitiDesktopEdge {
             var root = new DockPanel { Margin = new Thickness(12) };
 
             statusLabel = new TextBlock {
-                Text = "enumerating pipes…",
+                Text = "枚举命名管道中…",
                 Foreground = Brushes.Gainsboro,
                 Margin = new Thickness(2, 2, 2, 8),
                 FontFamily = new FontFamily("Segoe UI")
@@ -63,7 +63,7 @@ namespace ZitiDesktopEdge {
             root.Children.Add(statusLabel);
 
             var refreshBtn = new Button {
-                Content = "Refresh",
+                Content = "刷新",
                 Margin = new Thickness(2, 0, 2, 8),
                 Padding = new Thickness(8, 4, 8, 4),
                 HorizontalAlignment = HorizontalAlignment.Right
@@ -86,7 +86,7 @@ namespace ZitiDesktopEdge {
 
         private async Task PopulateAsync() {
             stack.Children.Clear();
-            statusLabel.Text = "enumerating pipes…";
+            statusLabel.Text = "枚举命名管道中…";
 
             IReadOnlyList<TunnelInstanceDiscovery.TunnelInstance> discovered;
             try {
@@ -108,7 +108,7 @@ namespace ZitiDesktopEdge {
 
             int liveCount = ordered.Count(i => i.IsOnline);
             statusLabel.Text = liveCount == 0
-                ? "no tunnelers running. start one or click default to retry."
+                ? "没有 Tunneler 运行。启动一个或点击默认重试。"
                 : (liveCount == 1 ? "1 instance running." : liveCount + " instances running.")
                     + " click to switch.";
 

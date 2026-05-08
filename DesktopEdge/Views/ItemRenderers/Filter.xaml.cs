@@ -38,10 +38,10 @@ namespace ZitiDesktopEdge {
 
         public delegate void OnFilterEvent(FilterData filter);
         public event OnFilterEvent OnFilter;
-        public string placeholder = "any text";
+        public string placeholder = "任意文本";
         private static Timer timeout;
 
-        private FilterData filter = new FilterData("", "Name", "Asc");
+        private FilterData filter = new FilterData("", "名称", "升序");
         public Filter() {
             InitializeComponent();
         }

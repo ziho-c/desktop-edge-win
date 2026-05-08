@@ -65,13 +65,13 @@
                 </Grid.RowDefinitions>
 
                 <local:Toggler x:Name="ToggleSwitch" Grid.Column="0" Grid.Row="0" Margin="{StaticResource MarginTop10}"></local:Toggler>
-                <Label Name="ToggleStatus" Grid.Column="0" Grid.Row="1" Margin="0,-5,0,0" Content="Enabled" Foreground="White" FontSize="11" Typography.Capitals="AllSmallCaps" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"></Label>
+                <Label Name="ToggleStatus" Grid.Column="0" Grid.Row="1" Margin="0,-5,0,0" Content="已启用" Foreground="White" FontSize="11" Typography.Capitals="AllSmallCaps" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"></Label>
                 <Rectangle  d:Fill="Green" d:Opacity=".5" Fill="Transparent" Grid.Column="0" Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                             Cursor="Hand" MouseUp="ToggledSwitch"></Rectangle>
 
                 <Label MaxWidth="210" Grid.Row="0" Padding="0,0,0,0" Grid.Column="1" VerticalAlignment="Center" Margin="0,11,0,0"
                        FontSize="16" Foreground="White" HorizontalAlignment="Left">
-                    <TextBlock Name="IdName" TextTrimming="CharacterEllipsis">Identity Name</TextBlock>
+                    <TextBlock Name="IdName" TextTrimming="CharacterEllipsis">身份名称</TextBlock>
                 </Label>
                 <Label 
                        MaxWidth="180" MinWidth="210"

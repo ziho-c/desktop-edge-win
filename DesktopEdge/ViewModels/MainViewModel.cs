@@ -23,7 +23,7 @@ using ZitiDesktopEdge.Models;
 
 namespace ZitiDesktopEdge {
     public class MainViewModel : INotifyPropertyChanged {
-        private string _connectLabelContent = "Tap to Connect";
+        private string _connectLabelContent = "点击连接";
         private string _sortOption;
         private string _sortDirection;
         private bool _isConnected;
@@ -73,17 +73,17 @@ namespace ZitiDesktopEdge {
 
         public Visibility ColumnHeaderVisibility => _isConnected && _identityCount > 0 ? Visibility.Visible : Visibility.Collapsed;
 
-        public Visibility NameArrowVisibility => SortOption == "Name" ? Visibility.Visible : Visibility.Collapsed;
-        public Visibility StatusArrowVisibility => SortOption == "Status" ? Visibility.Visible : Visibility.Collapsed;
-        public Visibility ServicesArrowVisibility => SortOption == "Services" ? Visibility.Visible : Visibility.Collapsed;
-        public string SortArrowText => SortDirection == "Descending" ? "▼" : "▲";
+        public Visibility NameArrowVisibility => SortOption == "名称" ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility StatusArrowVisibility => SortOption == "状态" ? Visibility.Visible : Visibility.Collapsed;
+        public Visibility ServicesArrowVisibility => SortOption == "服务" ? Visibility.Visible : Visibility.Collapsed;
+        public string SortArrowText => SortDirection == "降序" ? "▼" : "▲";
 
         public void SetSort(string option) {
             if (SortOption == option) {
-                SortDirection = SortDirection == "Descending" ? "Ascending" : "Descending";
+                SortDirection = SortDirection == "降序" ? "升序" : "降序";
             } else {
                 SortOption = option;
-                SortDirection = "Descending";
+                SortDirection = "降序";
             }
             var settings = Properties.Settings.Default;
             settings.SortOption = SortOption;
@@ -104,17 +104,17 @@ namespace ZitiDesktopEdge {
         }
 
         public ZitiIdentity[] GetSortedIdentities(IEnumerable<ZitiIdentity> identities) {
-            bool descending = SortDirection == "Descending";
+            bool descending = SortDirection == "降序";
             IEnumerable<ZitiIdentity> sorted;
             switch (SortOption) {
-                case "Name":
+                case "名称":
                     if (descending) {
                         sorted = identities.OrderByDescending(i => i.Name, StringComparer.OrdinalIgnoreCase);
                     } else {
                         sorted = identities.OrderBy(i => i.Name, StringComparer.OrdinalIgnoreCase);
                     }
                     break;
-                case "Services":
+                case "服务":
                     if (descending) {
                         sorted = identities
                             .OrderByDescending(i => AuthSortOrder(i))
@@ -125,7 +125,7 @@ namespace ZitiDesktopEdge {
                             .ThenBy(i => i.Services.Count);
                     }
                     break;
-                case "Status":
+                case "状态":
                     if (descending) {
                         sorted = identities.OrderByDescending(i => i.IsEnabled);
                     } else {
@@ -141,7 +141,7 @@ namespace ZitiDesktopEdge {
 
         public void Disconnected() {
             _isConnected = false;
-            ConnectLabelContent = "Tap to Connect";
+            ConnectLabelContent = "点击连接";
             OnPropertyChanged(nameof(ColumnHeaderVisibility));
         }
 

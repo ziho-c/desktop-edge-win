@@ -98,7 +98,7 @@
                 />
             </Grid>
             <!-- Certificate File -->
-            <Label Content="Certificate File" Foreground="White" Opacity="0.7" FontSize="12" HorizontalAlignment="Left" />
+            <Label Content="证书文件" Foreground="White" Opacity="0.7" FontSize="12" HorizontalAlignment="Left" />
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
                 <TextBox x:Name="CertificateFile"
                              FontSize="14"
@@ -107,14 +107,14 @@
                              Text="&lt;Choose Certificate File&gt;"
                              IsTabStop="True"
                      />
-                <Button Content="Browse"
+                <Button Content="浏览"
                             Margin="10,0,0,0"
                             Click="BrowseCertificateFile_Click"
                             IsTabStop="True"/>
             </StackPanel>
 
             <!-- Key File -->
-            <Label Content="Key File" Foreground="White" Opacity="0.7" FontSize="12" HorizontalAlignment="Left" />
+            <Label Content="密钥文件" Foreground="White" Opacity="0.7" FontSize="12" HorizontalAlignment="Left" />
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
                 <TextBox x:Name="KeyFile"
                              FontSize="14"
@@ -123,14 +123,14 @@
                              Text="&lt;Choose Key File&gt;"
                              IsTabStop="True"/>
                 <Button x:Name="BrowseKeyBtn"
-                            Content="Browse"
+                            Content="浏览"
                             Margin="10,0,0,0"
                             Click="BrowseKeyFile_Click"
                             IsTabStop="True"/>
             </StackPanel>
 
             <!-- Alias >
-            <Label Content="Alias" Foreground="White" Opacity="0.7" FontSize="12" HorizontalAlignment="Left" />
+            <Label Content="别名" Foreground="White" Opacity="0.7" FontSize="12" HorizontalAlignment="Left" />
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
                 <TextBox x:Name="Alias"
                              FontSize="14"
@@ -141,7 +141,7 @@
             </StackPanel-->
             <local:StyledButton x:Name="JoinNetworkBtn" 
                                     OnClick="JoinNetworkCA" 
-                                    Label="Join Network" 
+                                    Label="加入网络" 
                                     IsTabStop="True" 
                                     Margin="{StaticResource MarginTop10}" />
         </StackPanel>

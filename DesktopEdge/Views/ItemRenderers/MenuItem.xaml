@@ -59,7 +59,7 @@
                    Width="20" Height="20"/>
             <Label Name="LabelCtrl"
                    Grid.Column="1"
-                   Content="Main Menu"
+                   Content="主菜单"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Stretch"
                    FontSize="14"

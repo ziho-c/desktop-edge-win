@@ -102,7 +102,7 @@ namespace ZitiDesktopEdge {
             SecretCode.Visibility = Visibility.Collapsed;
             CloseBlack.Visibility = Visibility.Visible;
             CloseWhite.Visibility = Visibility.Collapsed;
-            SecretButton.Content = "Show Secret";
+            SecretButton.Content = "显示密钥";
             IdName.Content = identity.Name;
             Logger.Debug($"MFA Url: {url}");
             AuthBrush.Visibility = Visibility.Collapsed;
@@ -324,7 +324,7 @@ namespace ZitiDesktopEdge {
             if (SecretCode.Visibility == Visibility.Visible) {
                 MFAImage.Visibility = Visibility.Visible;
                 SecretCode.Visibility = Visibility.Collapsed;
-                SecretButton.Content = "Show Secret";
+                SecretButton.Content = "显示密钥";
             } else {
                 MFAImage.Visibility = Visibility.Collapsed;
                 SecretCode.Visibility = Visibility.Visible;

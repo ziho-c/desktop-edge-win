@@ -26,7 +26,7 @@
     <StackPanel>
         <Expander Header="MFA" Background="AliceBlue">
             <StackPanel Background="AliceBlue">
-                <Button x:Name="btn1" Content="Add Fingerprint and click to enable mfa" Click="btn1_Click"/>
+                <Button x:Name="btn1" Content="添加指纹并点击以启用 MFA" Click="btn1_Click"/>
                 <TextBox x:Name="FingerPrint"/>
                 <TextBox x:Name="MfaActionOp"/>
                 <TextBox x:Name="MfaIsVerified"/>
@@ -34,11 +34,11 @@
                 <TextBox x:Name="MfaRecoveryCodes"/>
                 <Line></Line>
                 <TextBox x:Name="TheMFACode"/>
-                <Button x:Name="btn2" Content="Click to verify enrollment" Click="btn2_Click"/>
-                <Button x:Name="btn3" Content="Click to Authorize" Click="btn3_Click"/>
-                <Button x:Name="btn4" Content="Click to remove mfa" Click="btn4_Click"/>
-                <Button x:Name="btn5" Content="Click to return codes" Click="btn5_Click"/>
-                <Button x:Name="btn6" Content="Click to generate codes" Click="btn6_Click"/>
+                <Button x:Name="btn2" Content="点击验证 Enrollment" Click="btn2_Click"/>
+                <Button x:Name="btn3" Content="点击授权" Click="btn3_Click"/>
+                <Button x:Name="btn4" Content="点击移除 MFA" Click="btn4_Click"/>
+                <Button x:Name="btn5" Content="点击返回恢复码" Click="btn5_Click"/>
+                <Button x:Name="btn6" Content="点击生成恢复码" Click="btn6_Click"/>
             </StackPanel>
         </Expander>
     </StackPanel>

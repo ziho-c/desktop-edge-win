@@ -24,7 +24,7 @@
         mc:Ignorable="d"
         ShowInTaskbar="False"
         x:Name="MainUI"
-        Title="Ziti Desktop Edge" 
+        Title="Ziti 桌面客户端" 
         Width="{StaticResource MaxWindowWidth}"
         MaxWidth="{StaticResource MaxWindowWidth}"
         ResizeMode="NoResize" 
@@ -202,7 +202,7 @@
                     />
                     <Label x:Name="ConnectLabel"
                            Content="{Binding ConnectLabelContent}"
-                           d:Content="Tap to Connect"
+                           d:Content="点击连接"
                            Margin="0,-3,0,0" 
                            FontFamily="pack://application:,,,/Assets/Fonts/#Russo One"
                            FontSize="14" 
@@ -234,9 +234,9 @@
                                 </ControlTemplate>
                             </ContextMenu.Template>
 
-                            <MenuItem Header="With JWT" Click="AddIdentity_Click"
+                            <MenuItem Header="使用 JWT" Click="AddIdentity_Click"
                                       Template="{StaticResource AddIdentityContextMenuTemplate}" />
-                            <MenuItem Header="With URL" Click="WithUrl_Click"
+                            <MenuItem Header="使用 URL" Click="WithUrl_Click"
                                       Template="{StaticResource AddIdentityContextMenuTemplate}" />
                         </ContextMenu>
                     </StackPanel.ContextMenu>
@@ -274,7 +274,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="40"/>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="Download Speed" Foreground="White" HorizontalAlignment="Right" FontSize="14" ></Label>
+                        <Label Grid.Column="0" Content="下载速度" Foreground="White" HorizontalAlignment="Right" FontSize="14" ></Label>
                         <Image Grid.Column="1" Source="/Assets/Images/down.png" Width="20" HorizontalAlignment="Left" Height="20"></Image>
                     </Grid>
                     <Label Name="DownloadSpeed" Margin="0,-16,0,0" Foreground="#0069FF" Content="0" FontSize="40" HorizontalAlignment="Center"  />
@@ -286,7 +286,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="50"/>
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="Upload Speed" Foreground="White" HorizontalAlignment="Right" FontSize="14" ></Label>
+                        <Label Grid.Column="0" Content="上传速度" Foreground="White" HorizontalAlignment="Right" FontSize="14" ></Label>
                         <Image Grid.Column="1" Source="/Assets/Images/up.png" Width="20" HorizontalAlignment="Left" Height="20"></Image>
                     </Grid>
                     <Label Name="UploadSpeed" Margin="0,-16,0,0" Foreground="#FF0047" Content="0" FontSize="40" HorizontalAlignment="Center"  />
@@ -318,18 +318,18 @@
                             <ColumnDefinition Width="80" SharedSizeGroup="Services"/>
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Style="{StaticResource HeaderStackPanelStyle}" MouseDown="SortByStatus_Click">
-                            <Label x:Name="SortByStatus" Content="Status" Style="{StaticResource SortLabelStyle}"/>
+                            <Label x:Name="SortByStatus" Content="状态" Style="{StaticResource SortLabelStyle}"/>
                             <TextBlock x:Name="SortByStatusArrow" Style="{StaticResource SortArrowStyle}" Text="{Binding SortArrowText}"
                                        Visibility="{Binding StatusArrowVisibility}"/>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Style="{StaticResource HeaderStackPanelStyle}" MouseDown="SortByName_Click"
                                     HorizontalAlignment="Left">
-                            <Label x:Name="SortByName" Content="Name" Style="{StaticResource SortLabelStyle}"/>
+                            <Label x:Name="SortByName" Content="名称" Style="{StaticResource SortLabelStyle}"/>
                             <TextBlock x:Name="SortByNameArrow" Style="{StaticResource SortArrowStyle}" Text="{Binding SortArrowText}"
                                        Visibility="{Binding NameArrowVisibility}"/>
                         </StackPanel>
                         <StackPanel Grid.Column="2" Style="{StaticResource HeaderStackPanelStyle}" MouseDown="SortByServices_Click">
-                            <Label x:Name="SortByServices" Content="Services" Style="{StaticResource SortLabelStyle}"/>
+                            <Label x:Name="SortByServices" Content="服务" Style="{StaticResource SortLabelStyle}"/>
                             <TextBlock x:Name="SortByServicesArrow" Style="{StaticResource SortArrowStyle}" Text="{Binding SortArrowText}"
                                        Visibility="{Binding ServicesArrowVisibility}"/>
                         </StackPanel>
@@ -436,7 +436,7 @@
                 </Grid.RowDefinitions>
                 <Image x:Name="RedBlurb" Source="/Assets/Images/WarningRed.png" Grid.Column="0" Width="30" Grid.Row="1" Height="30" Margin="0,0,0,0"></Image>
                 <Image x:Name="InfoBlurb" Visibility="Collapsed" Source="/Assets/Images/Warning.png" Grid.Column="0" Width="30" Grid.Row="1" Height="30" Margin="0,0,0,0"></Image>
-                <Label x:Name="Blurb" Content="An Update is available!" MouseUp="BlurbAction" Grid.Column="1" Padding="0,0,0,0" Grid.Row="1" Margin="0,0,0,0"  Foreground="#000000" FontSize="12" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                <Label x:Name="Blurb" Content="有可用更新！" MouseUp="BlurbAction" Grid.Column="1" Padding="0,0,0,0" Grid.Row="1" Margin="0,0,0,0"  Foreground="#000000" FontSize="12" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
                 <Image Source="/Assets/Images/closeBlack.png" Grid.Column="2" Width="10" Height="10" Grid.Row="1" Margin="0,0,0,0" Cursor="Hand" MouseUp="DoHideBlurb"></Image>
             </Grid>
         </Grid>
@@ -456,22 +456,22 @@
                     <RowDefinition Height="30"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Label x:Name="ErrorMsg" Foreground="White" Content="Service Not Started" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" />
-                <Label x:Name="ErrorMsgDetail" Foreground="LightGray" Content="Start the Ziti Tunnel Service to get started" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" />
+                <Label x:Name="ErrorMsg" Foreground="White" Content="服务未启动" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" />
+                <Label x:Name="ErrorMsgDetail" Foreground="LightGray" Content="启动 Ziti Tunnel 服务以开始" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" />
 
                 <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="CloseErrorButton" Grid.Column="0" Margin="40,0,20,0" Cursor="Hand" BorderThickness="0" Foreground="#FFFFFF" Background="#0068F9" Content="Close Error" Click="CloseError" >
+                    <Button x:Name="CloseErrorButton" Grid.Column="0" Margin="40,0,20,0" Cursor="Hand" BorderThickness="0" Foreground="#FFFFFF" Background="#0068F9" Content="关闭错误" Click="CloseError" >
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>
                             </Style>
                         </Button.Resources>
                     </Button>
-                    <Button x:Name="QuitButton" Grid.Column="1" Margin="20,0,40,0" Cursor="Hand" BorderThickness="0" Foreground="#FFFFFF" Background="#F4044D" Content="Quit App" Click="CloseApp" >
+                    <Button x:Name="QuitButton" Grid.Column="1" Margin="20,0,40,0" Cursor="Hand" BorderThickness="0" Foreground="#FFFFFF" Background="#F4044D" Content="退出" Click="CloseApp" >
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>
@@ -501,7 +501,7 @@
                     <RowDefinition Height="10"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <Label x:Name="LoadingTitle" Foreground="White" Content="Loading" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" />
+                <Label x:Name="LoadingTitle" Foreground="White" Content="加载中" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" />
                 <TextBlock x:Name="LoadingDetails" TextWrapping="WrapWithOverflow" Foreground="LightGray" Padding="10" Text="${x:DefaultLoadText}" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="14" />
                 <ProgressBar x:Name="LoadProgress" Width="100" Grid.Row="3" IsEnabled="True" />
             </Grid>
@@ -527,35 +527,35 @@
                     <RowDefinition Height="30"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBlock x:Name="ErrorTitle" TextWrapping="WrapWithOverflow" Width="400" Foreground="White" Text="An Error Occurred" Grid.Row="1" TextAlignment="Center" VerticalAlignment="Center" FontSize="24" />
+                <TextBlock x:Name="ErrorTitle" TextWrapping="WrapWithOverflow" Width="400" Foreground="White" Text="发生错误" Grid.Row="1" TextAlignment="Center" VerticalAlignment="Center" FontSize="24" />
                 <StackPanel x:Name="ErrorPanel"
                             Grid.Row="2"
                             Width="400">
                     <TextBlock x:Name="ErrorDetails"
                                TextWrapping="WrapWithOverflow" Foreground="LightGray"
                                Padding="10"
-                               Text="An Unknown Error Occurred, you could try restarting the service and the interface to continue"
+                               Text="发生未知错误，可尝试重启服务和界面后继续"
                                
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                TextAlignment="Center"
                                FontSize="14" />
                 </StackPanel>
-                <Label Grid.Row="3" Foreground="Gray" FontWeight="Light" Content="Check the Log for Details"  HorizontalAlignment="Center"></Label>
+                <Label Grid.Row="3" Foreground="Gray" FontWeight="Light" Content="查看日志了解详情"  HorizontalAlignment="Center"></Label>
 
                 <Grid Grid.Row="4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Margin="40,0,20,0" Cursor="Hand" BorderThickness="0" Foreground="#FFFFFF" Background="#0068F9" Content="Close Error" Click="CloseError" >
+                    <Button Grid.Column="0" Margin="40,0,20,0" Cursor="Hand" BorderThickness="0" Foreground="#FFFFFF" Background="#0068F9" Content="关闭错误" Click="CloseError" >
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>
                             </Style>
                         </Button.Resources>
                     </Button>
-                    <Button Grid.Column="1" Margin="20,0,40,0" Cursor="Hand" BorderThickness="0" Foreground="#FFFFFF" Background="#F4044D" Content="Quit App" Click="CloseApp" >
+                    <Button Grid.Column="1" Margin="20,0,40,0" Cursor="Hand" BorderThickness="0" Foreground="#FFFFFF" Background="#F4044D" Content="退出" Click="CloseApp" >
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>
@@ -568,9 +568,9 @@
 
         <local:ConfirmationDialog
             x:Name="OverrideKeychain"
-            Title="Delete Item?"
+            Title="删除条目？"
             Visibility="Collapsed"
-            Description="Are you sure you want to delete this item? This action cannot be undone."
+            Description="确定要删除此项吗？此操作无法撤销。"
         />
     </Grid>
 </Window>

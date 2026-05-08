@@ -114,7 +114,7 @@ namespace ZitiDesktopEdge {
 
         private List<ZitiIdentity> identities {
             get {
-                return (List<ZitiIdentity>)Application.Current.Properties["Identities"];
+                return (List<ZitiIdentity>)Application.Current.Properties["身份"];
             }
         }
 
@@ -879,7 +879,7 @@ namespace ZitiDesktopEdge {
             monitorClient.OnReconnectFailure += MonitorClient_OnReconnectFailure;
             Application.Current.Properties.Add("MonitorClient", monitorClient);
 
-            Application.Current.Properties.Add("Identities", new List<ZitiIdentity>());
+            Application.Current.Properties.Add("身份", new List<ZitiIdentity>());
             MainMenu.OnAttachmentChange += AttachmentChanged;
             MainMenu.OnLogLevelChanged += LogLevelChanged;
             MainMenu.OnShowBlurb += MainMenu_OnShowBlurb;
@@ -1283,7 +1283,7 @@ namespace ZitiDesktopEdge {
         private void QueueExtAuthNotification(ZitiIdentity identity) {
             string displayName = string.IsNullOrEmpty(identity.Name) ? identity.Identifier : identity.Name;
             var button = new ToastButton()
-                .SetContent("Authenticate")
+                .SetContent("认证")
                 .AddArgument("action", "ext-auth")
                 .AddArgument("identifier", identity.Identifier);
             _notificationThrottle.Queue(identity.Identifier, $"{displayName} requires external authentication to access services.", button);
@@ -1292,7 +1292,7 @@ namespace ZitiDesktopEdge {
         private void QueueMfaNotification(ZitiIdentity identity) {
             string displayName = string.IsNullOrEmpty(identity.Name) ? identity.Identifier : identity.Name;
             var button = new ToastButton()
-                .SetContent("Authenticate")
+                .SetContent("认证")
                 .AddArgument("action", "mfa-auth")
                 .AddArgument("identifier", identity.Identifier);
             _notificationThrottle.Queue(identity.Identifier, $"{displayName} requires MFA authentication.", button);
@@ -1375,12 +1375,12 @@ namespace ZitiDesktopEdge {
                 logger.Warn("the monitor service appears offline. {0}", me);
                 CloseErrorButton.IsEnabled = true;
                 HideLoad();
-                ShowError("Error Starting Service", "The monitor service is offline");
+                ShowError("Error Starting Service", "监控服务离线");
             } catch (Exception ex) {
                 logger.Error(ex, "UNEXPECTED ERROR!");
                 CloseErrorButton.IsEnabled = true;
                 HideLoad();
-                ShowError("Unexpected Error", "Code 2:" + ex.Message);
+                ShowError("意外错误", "代码 2：" + ex.Message);
             }
             CloseErrorButton.IsEnabled = true;
             // HideLoad();
@@ -1887,17 +1887,17 @@ namespace ZitiDesktopEdge {
         }
 
         private void SortByName_Click(object sender, MouseButtonEventArgs e) {
-            props.SetSort("Name");
+            props.SetSort("名称");
             LoadIdentities(true);
         }
 
         private void SortByServices_Click(object sender, MouseButtonEventArgs e) {
-            props.SetSort("Services");
+            props.SetSort("服务");
             LoadIdentities(true);
         }
 
         private void SortByStatus_Click(object sender, MouseButtonEventArgs e) {
-            props.SetSort("Status");
+            props.SetSort("状态");
             LoadIdentities(true);
         }
 
@@ -2173,20 +2173,20 @@ namespace ZitiDesktopEdge {
                                 break;
                             default:
                                 logger.Error("JWT is invalid? {}", fileContent);
-                                ShowError("JWT Invalid", "The file selected is not a valid JWT");
+                                ShowError("JWT 无效", "所选文件不是有效的 JWT");
                                 break;
                         }
                     } catch (ServiceException se) {
                         ShowError(se.Message, se.AdditionalInfo);
                     } catch (Exception ex) {
-                        ShowError("Unexpected Error", "Code 2:" + ex.Message);
+                        ShowError("意外错误", "代码 2：" + ex.Message);
                     }
                 } else {
                     // invalid jwt
                     logger.Error("JWT is invalid? {}", fileContent);
                 }
             } else {
-                logger.Debug("user closed jwt dialog without selecting a file. nbd.");
+                logger.Debug("用户未选择文件就关闭了 JWT 对话框，无影响。");
             }
             HideLoad();
         }
@@ -2227,7 +2227,7 @@ namespace ZitiDesktopEdge {
                 }
             } catch (MonitorServiceException me) {
                 logger.Warn("the monitor service appears offline. {0}", me);
-                ShowError("Error Disabling Service", "The monitor service is offline");
+                ShowError("Error Disabling Service", "监控服务离线");
             } catch (Exception ex) {
                 logger.Error(ex, "unexpected error: {0}", ex.Message);
                 ShowError("Error Disabling Service", "An error occurred while trying to disable the data service. Is the monitor service running?");
@@ -2428,7 +2428,7 @@ namespace ZitiDesktopEdge {
 
         private void DoLoading(bool isComplete) {
             if (isComplete) HideLoad();
-            else ShowLoad("Loading", "Please Wait.");
+            else ShowLoad("加载中", "Please Wait.");
         }
 
         private void AddIdentityContextMenu(object sender, MouseButtonEventArgs e) {
@@ -2442,7 +2442,7 @@ namespace ZitiDesktopEdge {
         private void WithJwt_Click(object sender, RoutedEventArgs e) {
             if (!UIUtils.IsLeftClick(e)) return;
             if (!UIUtils.MouseUpForMouseDown(e)) return;
-            // Handle "With JWT"
+            // Handle "使用 JWT"
             AddIdentity_Click(sender, e);
         }
 
@@ -2476,7 +2476,7 @@ namespace ZitiDesktopEdge {
                 }
                 ShowError(se.Message, se.AdditionalInfo);
             } catch (Exception ex) {
-                ShowError("Unexpected Error", "Code 2:" + ex.Message);
+                ShowError("意外错误", "代码 2：" + ex.Message);
             }
             HideLoad();
         }

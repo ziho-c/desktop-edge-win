@@ -22,7 +22,7 @@ namespace Ziti.Desktop.Edge.Models {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         private bool automaticUpdatesDisabled = false;
-        private string updateUrl = "not set yet";
+        private string updateUrl = "尚未设置";
         public bool AutomaticUpdatesDisabled {
             get {
                 return automaticUpdatesDisabled;

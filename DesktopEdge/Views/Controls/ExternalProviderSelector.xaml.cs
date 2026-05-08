@@ -49,7 +49,7 @@ namespace ZitiDesktopEdge {
         }
 
         private void UserControl_MouseLeave(object sender, MouseEventArgs e) {
-            Debug.WriteLine("Mouse left the user control.");
+            Debug.WriteLine("鼠标已离开用户控件。");
         }
     }
 }

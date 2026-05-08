@@ -57,7 +57,7 @@ namespace ZitiDesktopEdge {
                 policyViewModel.ApplyState(policyState);
                 Current.Properties["ManagedSettingsViewModel"] = policyViewModel;
 
-                const string appName = "Ziti Desktop Edge";
+                const string appName = "Ziti 桌面客户端";
 
                 bool createdNew;
 
@@ -65,10 +65,10 @@ namespace ZitiDesktopEdge {
 #if !DEBUG
                 if (!createdNew) {
 #if DEBUG
-                    logger.Info("Another instance exists but running in debug mode - allowing both to run...");
+                    logger.Info("已存在另一实例但其以调试模式运行 - 允许两者同时运行...");
 #else
                     using (var client = new NamedPipeClientStream(NamedPipeName)) {
-                        logger.Info("Another instance exists. Attempting to notify it to open");
+                        logger.Info("已存在另一实例，正在尝试通知其打开");
                         try {
                             client.Connect(1000);
                         } catch {
@@ -92,18 +92,18 @@ namespace ZitiDesktopEdge {
                 }
 #endif
             } catch (Exception ex) {
-                logger.Error($"OnStartup FAILED unexpectedly. Exiting", ex);
+                logger.Error($"启动失败，正在退出", ex);
                 Application.Current.Shutdown();
             }
         }
 
         async public Task StartServer() {
-            logger.Debug("Starting IPC server to listen for other instances of the app");
+            logger.Debug("启动 IPC 服务器以监听应用的其他实例");
             while (true) {
                 string text;
                 using (var server = new NamedPipeServerStream(NamedPipeName)) {
                     await server.WaitForConnectionAsync();
-                    logger.Debug("Another instance opened and connected.");
+                    logger.Debug("另一实例已打开并连接。");
                     using (StreamReader reader = new StreamReader(server)) {
                         text = await reader.ReadToEndAsync();
                     }

@@ -28,10 +28,10 @@
                 CornerRadius="10"
                 Padding="10" />
         <StackPanel Margin="5,10,5,10">
-            <Label Content="Configure Enrollment" Foreground="White" FontSize="16" HorizontalAlignment="Center" FontWeight="Bold" />
-            <Label Content="Choose how this identity connects to the network" Foreground="White" Opacity="0.7" FontSize="12" HorizontalAlignment="Center" Margin="0,0,0,10" />
+            <Label Content="配置 Enrollment" Foreground="White" FontSize="16" HorizontalAlignment="Center" FontWeight="Bold" />
+            <Label Content="选择此身份的入网方式" Foreground="White" Opacity="0.7" FontSize="12" HorizontalAlignment="Center" Margin="0,0,0,10" />
 
-            <Label Content="Identity Provider"
+            <Label Content="身份提供方"
                    Foreground="White" Opacity="0.7" FontSize="12"
                    HorizontalAlignment="Center"
                    Visibility="{Binding SignerPickerVisibility}" />
@@ -54,8 +54,8 @@
                              IsChecked="{Binding IsUserSessionSelected}"
                              Foreground="White" Margin="0,2">
                     <StackPanel>
-                        <TextBlock Text="User session" FontSize="12" />
-                        <TextBlock Text="requires periodic login, tied to user account"
+                        <TextBlock Text="用户会话" FontSize="12" />
+                        <TextBlock Text="需周期登录，绑定用户账号"
                                    FontSize="10" Opacity="0.7" />
                     </StackPanel>
                 </RadioButton>
@@ -63,14 +63,14 @@
                              IsChecked="{Binding IsDeviceCertificateSelected}"
                              Foreground="White" Margin="0,2">
                     <StackPanel>
-                        <TextBlock Text="Device certificate" FontSize="12" />
-                        <TextBlock Text="no re-auth, tied to this machine"
+                        <TextBlock Text="设备证书" FontSize="12" />
+                        <TextBlock Text="无需重认证，绑定此设备"
                                    FontSize="10" Opacity="0.7" />
                     </StackPanel>
                 </RadioButton>
             </StackPanel>
 
-            <local:StyledButton x:Name="JoinNetworkBtn" OnClick="JoinNetworkUrl" Label="Join Network" />
+            <local:StyledButton x:Name="JoinNetworkBtn" OnClick="JoinNetworkUrl" Label="加入网络" />
         </StackPanel>
         <Image Source="/Assets/Images/close.png" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,20,20,0" Width="15" Height="15" Cursor="Hand" MouseUp="ExecuteClose" />
     </Grid>

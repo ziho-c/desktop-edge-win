@@ -43,7 +43,7 @@ namespace Ziti.Desktop.Edge.Utils {
                 ReadMonitorKeys(state);
                 ReadUiKeys(state);
             } catch (Exception ex) {
-                Logger.Error(ex, "Unexpected error reading policy registry settings");
+                Logger.Error(ex, "读取策略注册表设置时发生意外错误");
             }
 
             Logger.Info(

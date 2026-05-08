@@ -107,8 +107,8 @@ namespace ZitiDesktopEdge.Models {
             this.Services = Services;
             this.ControllerUrl = ControllerUrl;
             this.IsEnabled = IsEnabled;
-            this.EnrollmentStatus = "Enrolled";
-            this.Status = "Available";
+            this.EnrollmentStatus = "已 Enroll";
+            this.Status = "可用";
             this.MaxTimeout = -1;
             this.MinTimeout = -1;
             this.LastUpdatedTime = DateTime.Now;
